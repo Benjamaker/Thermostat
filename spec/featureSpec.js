@@ -22,6 +22,11 @@ describe('Feature test', function() {
       expect(thermostat.temperature).toEqual(25);
     });
 
+    it('raises an error if max temperature exceeded', function(){
+      expect(function() { thermostat.turnUp(6)}).toThrowError(`Maximum temperature is ${thermostat.maximumTemp}!`)
+      //expect(thermostat.turnUp(6)).toThrowError(`Maximum temperature is ${this.maximumTemp}!`)
+    });
+
     it('can be turned down', function() {
       thermostat.turnDown(3);
       expect(thermostat.temperature).toEqual(17);
@@ -70,4 +75,21 @@ describe('Feature test', function() {
       expect(thermostat.energyUsage()).toEqual("high-usage")
     });
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });

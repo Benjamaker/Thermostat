@@ -7,6 +7,9 @@ function Thermostat(){
 };
 
 Thermostat.prototype.turnUp = function(num) {
+if ((this.temperature + num) > this.maximumTemp) {
+  throw new Error(`Maximum temperature is ${this.maximumTemp}!`)
+}
   this.temperature += num
   return this.temperature
 };
@@ -39,6 +42,6 @@ Thermostat.prototype.energyUsage = function() {
   } else if (this.temperature < 18) {
     return "low-usage";
   } else {
-    return "medium-usage";    
+    return "medium-usage";
   };
 };
