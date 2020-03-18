@@ -38,7 +38,36 @@ describe('Feature test', function() {
 
   describe('power saving mode', function() {
     it('is on by default', function() {
-      expect(thermostat.powerSaving()).toBeTruthy();
+      expect(thermostat.powerSaving).toBeTruthy();
+    });
+
+    it('can be turned off', function() {
+      thermostat.powerSavingOff()
+      expect(thermostat.powerSaving).toBeFalsy();
+    });
+  });
+
+  describe('reset', function() {
+    it('can be reset to 20', function() {
+      thermostat.reset()
+      expect(thermostat.temperature).toEqual(20);
+    });
+  });
+
+  describe('energy usage', function() {
+    it('has medium usage by default', function() {
+      expect(thermostat.energyUsage()).toEqual("medium-usage")
+    });
+
+    it('has low usage', function() {
+      thermostat.temperature = 10
+      expect(thermostat.energyUsage()).toEqual("low-usage")
+    });
+
+    it('has high usage', function() {
+      thermostat.powerSavingOff
+      thermostat.temperature = 26
+      expect(thermostat.energyUsage()).toEqual("high-usage")
     });
   });
 });
