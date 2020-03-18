@@ -26,5 +26,19 @@ describe('Feature test', function() {
       thermostat.turnDown(3);
       expect(thermostat.temperature).toEqual(17);
     });
+
+    it('has a minimum temperature of 10', function() {
+      expect(thermostat.minimumTemp).toEqual(10);
+    });
+
+    it('has a maximum temperature of 25', function() {
+      expect(thermostat.maximumTemp).toEqual(25);
+    });
+  });
+
+  describe('power saving mode', function() {
+    it('is on by default', function() {
+      expect(thermostat.powerSaving()).toBeTruthy();
+    });
   });
 });
