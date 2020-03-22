@@ -1,18 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <!-- <link rel="stylesheet" type= "text/css" href="./public/thermoStyle.css"> -->
   </head>
-  <body>
-  <button type="button" name="button">Temp up</button><br>
-  <button type="button" name="button">Temp down</button><br>
-  <button type="button" name="button">Power saver Off</button><br>
-  <button type="button" name="button">Power saver On</button><br>
-  <button type="button" name="button">Reset</button><br>
+    <body>
+      <style>
+      .high-usage {
+        color: red
+      }
+      .medium-usage {
+        color: black
+      }
+      .low-usage {
+        color: green
+      }
+      </style>
+        <h1 id ="temperature"></h1><br>
+        <h2 id ="powerSaving"></h2><br>
+        <p><button type="button" id="turnUp" name="button">Temp up</button><input type="text" id="tempUp" value=1></p>
+        <p><button type="button" id="turnDown" name="button">Temp down</button><input type="text" id="tempDn" value=1></p>
+        <p><button type="button" id="powerSaverOff" name="button">Power saver Off</button></p>
+        <p><button type="button" id="powerSaverOn" name="button">Power saver On</button></p>
+        <p><button type="button" id="reset" name="button">Reset</button></p>
 
+          <section>
+            <h1>Current temperature: <span id="current-temperature"></span></h1>
+        </section>
 
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
 
-<script src="thermostat.js"></script>
+    <script src="thermostat.js"></script>
+    <script src="interface.js"></script>
+
   </body>
 </html>

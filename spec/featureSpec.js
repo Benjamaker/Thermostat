@@ -24,7 +24,10 @@ describe('Feature test', function() {
 
     it('raises an error if max temperature exceeded', function(){
       expect(function() { thermostat.turnUp(6)}).toThrowError(`Maximum temperature is ${thermostat.maximumTemp}!`)
-      //expect(thermostat.turnUp(6)).toThrowError(`Maximum temperature is ${this.maximumTemp}!`)
+    });
+
+    it('raises an error if min temperature exceeded', function (){
+      expect(function() { thermostat.turnDown(11)}). toThrowError(`Minimum temperature is ${thermostat.minimumTemp}!`)
     });
 
     it('can be turned down', function() {

@@ -15,8 +15,8 @@ if ((this.temperature + num) > this.maximumTemp) {
 };
 
 Thermostat.prototype.turnDown = function(num) {
-  if (this.minimumTemp === this.temperature){
-    throw new Error("Minimum temperature reached");
+  if (this.minimumTemp > (this.temperature - num)){
+    throw new Error(`Minimum temperature is ${this.minimumTemp}!`);
   }
   this.temperature -= num
   return this.temperature
@@ -27,13 +27,14 @@ Thermostat.prototype.powerSavingOn = function() {
   this.powerSaving = true
 };
 
-Thermostat.prototype.powerSavingOff = function(){
+Thermostat.prototype.powerSavingOff = function() {
   this.maximumTemp = 32
   this.powerSaving = false
 };
 
 Thermostat.prototype.reset = function() {
-  this.temperature = 20;
+  this.temperature = 20
+  this.powerSaving = true
 };
 
 Thermostat.prototype.energyUsage = function() {
